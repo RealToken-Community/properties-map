@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   frontend:
     build:
@@ -8,13 +7,13 @@ services:
 #    ports:
 #      - 80:3010
     environment:
-      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=http://backend:3000/
+#      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=http://localhost:3000
+      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=https://api.realt.community/
       - REACT_APP_REALT_THEGRAPH_URL=https://api.thegraph.com/subgraphs/name/realtoken-thegraph/
       - REACT_APP_REALT_THEGRAPH_GNOSIS=realtoken-xdai
       - REACT_APP_REALT_THEGRAPH_RMM=rmm-v3-wrapper-gnosis
     volumes:
       - ./frontend:/app
-    command: [sh, -c, 'cd /app && npm start']
     networks:
       - traefik-realt
     labels:
@@ -23,20 +22,20 @@ services:
       - "traefik.http.routers.preprod-properties-map.entrypoints=websecure"
     restart: always
 
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: preprod-map-backend
-#    ports:
-#      - 3000:3000
-#      - 9229:9229
-    environment:
-      - PORT=3000
-      - CORS_ORIGIN=http://localhost
-    volumes:
-      - ./backend:/home/node/app
-    command: [sh, -c, 'cd /home/node/app && npm run dev']
+#  backend:
+#    build:
+#      context: ./backend
+#      dockerfile: Dockerfile
+#    container_name: preprod-map-backend
+##    ports:
+##      - 3000:3000
+##      - 9229:9229
+#    environment:
+#      - PORT=3000
+#      - CORS_ORIGIN=http://localhost
+#    volumes:
+#      - ./backend:/home/node/app
+#    command: [sh, -c, 'cd /home/node/app && npm run dev']
 
 networks:
   traefik-realt:
