@@ -8,7 +8,7 @@ services:
 #      - 80:3010
     environment:
 #      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=http://localhost:3000
-      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=https://api.realt.community/
+      - REACT_APP_REALT_PROPERTIES_BACKEND_URL=https://api.realtoken.community/
       - REACT_APP_REALT_THEGRAPH_URL=https://api.thegraph.com/subgraphs/name/realtoken-thegraph/
       - REACT_APP_REALT_THEGRAPH_GNOSIS=realtoken-xdai
       - REACT_APP_REALT_THEGRAPH_RMM=rmm-v3-wrapper-gnosis
@@ -18,7 +18,7 @@ services:
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.preprod-properties-map.rule=Host(`map.preprod.realt.community`)"
+      - "traefik.http.routers.preprod-properties-map.rule=Host(`map.preprod.realtoken.community`)"
       - "traefik.http.routers.preprod-properties-map.entrypoints=websecure"
     restart: always
 
