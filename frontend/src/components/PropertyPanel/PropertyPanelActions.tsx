@@ -45,7 +45,7 @@ export function PropertyPanelActions({
           title={t('title.viewOnRealtoken')}
           target="_blank"
           referrerPolicy="no-referrer"
-          href={"https://dashboard.realt.community/asset/" + address}>
+          href={"https://dashboard.realtoken.community/asset/" + address}>
           Dashboard
         </Button>
       </Grid.Col>
